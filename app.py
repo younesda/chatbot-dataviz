@@ -1,8 +1,18 @@
 from fastapi import FastAPI, WebSocket, UploadFile
+from fastapi.middleware.cors import CORSMiddleware
 import pandas as pd
 import openai, plotly.express as px
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # tu peux remplacer "*" par ["http://localhost:3000", "https://ton-domaine.com"]
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 dataframe_cache = None
 
 @app.post("/upload_csv/")
