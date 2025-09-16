@@ -5,6 +5,7 @@ import openai, plotly.express as px
 
 app = FastAPI()
 
+# ✅ Ajout du CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # tu peux remplacer "*" par ["http://localhost:3000", "https://ton-domaine.com"]
