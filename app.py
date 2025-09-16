@@ -4,7 +4,7 @@ import plotly.express as px
 from openai import OpenAI
 
 app = FastAPI()
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 dataframe_cache = None
 
 @app.get("/ping")
